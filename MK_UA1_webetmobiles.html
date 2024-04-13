@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Kidz</title>
+    <style>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a[href="#home"] {
+            background-color: #007bff;
+        }
+
+        nav a[href="#about"] {
+            background-color: #28a745;
+        }
+
+        nav a[href="#services"] {
+            background-color: #ffc107;
+        }
+
+        nav a[href="#contact"] {
+            background-color: #dc3545;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+        .menu {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        
+        .menu button {
+            color: white; 
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        
+        #home-button {
+            color: #007bff; 
+        }
+
+        #about-button {
+            color: #28a745; 
+        }
+
+        #services-button {
+            color: #ffc107; 
+        }
+
+        #contact-button {
+            color: #dc3545; 
+        }
+
+        
+        .menu button:hover {
+            background-color: #555;
+        }
+    </style>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>UA2 siteweb</h1>
+    </header>
+    
+    <div class="menu">
+        <button id="home-button" onclick="openPage('home')">Home</button>
+        <button id="about-button" onclick="openPage('about')">About</button>
+        <button id="services-button" onclick="openPage('services')">Services</button>
+        <button id="contact-button" onclick="openPage('contact')">Contact</button>
+    </div>
+
+    
+    <div id="home" class="page">
+        <p>Welcome to my super cool website! Don't forget to enter my free gift card giveaway.</p>
+    </div>
+    <div id="about" class="page" style="display: none;">
+        <h2>About Us</h2>
+        <p>This is the about us page.</p>
+    </div>
+    <div id="services" class="page" style="display: none;">
+        <h2>Our Services</h2>
+        <p>Here are the services we offer.</p>
+    </div>
+    <div id="contact" class="page" style="display: none;">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us.</p>
+    </div>
+
+    
+    <div id="parametre">
+        <a-scene embedded background="color: #ECECEC">
+            <a-box id="box" position="-1 0.5 -3" rotation="0 45 0" color="#A020F0" shadow material geometry></a-box>
+            <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#008000" shadow material geometry></a-sphere>
+            <a-cylinder id="cylinder" position="1 0.75 -3" radius="0.5" height="1.5" color="#0000FF" shadow material geometry></a-cylinder>
+            <a-plane id="plane" position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#808080" shadow material geometry></a-plane>
+        </a-scene>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2024 Cool Kidz</p>
+    </footer>
+
+    
+    <script>
+        function openPage(pageName) {
+            var i;
+            var pages = document.getElementsByClassName("page");
+            for (i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById(pageName).style.display = "block";
+        }
+
+        
+        var box = document.getElementById("box");
+        var sphere = document.getElementById("sphere");
+        var cylinder = document.getElementById("cylinder");
+        var plane = document.getElementById("plane");
+
+        
+        box.addEventListener("mouseenter", function() {
+            box.setAttribute("color", "#FF0000"); 
+        });
+        box.addEventListener("mouseleave", function() {
+            box.setAttribute("color", "#A020F0"); 
+        });
+
+        sphere.addEventListener("mouseenter", function() {
+            sphere.setAttribute("color", "#FFFF00"); 
+        });
+        sphere.addEventListener("mouseleave", function() {
+            sphere.setAttribute("color", "#008000"); 
+        });
+
+        cylinder.addEventListener("mouseenter", function() {
+            cylinder.setAttribute("color", "#00FFFF"); 
+        });
+        cylinder.addEventListener("mouseleave", function() {
+            cylinder.setAttribute("color", "#0000FF"); 
+        });
+
+        plane.addEventListener("mouseenter", function() {
+            plane.setAttribute("color", "#FFA500"); 
+        });
+        plane.addEventListener("mouseleave", function() {
+            plane.setAttribute("color", "#808080"); 
+        });
+    </script>
+</body>
+</html>
